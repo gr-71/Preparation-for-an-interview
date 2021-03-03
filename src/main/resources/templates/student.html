@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Student</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <h1 class="mb-4" th:if="${edit}">Edit</h1>
+                    <h1 class="mb-4" th:if="${add}">Add</h1>
+                </header>
+                <article class="card-body">
+                    <form th:object="${student}" method="post" th:action="@{/update}">
+                        <div class="card mb-8">
+                            <div class="card-body">
+                                <input th:type="hidden" th:field="*{id}">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input th:field="*{name}" type="text" class="form-control" id="name"
+                                           placeholder="Enter name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input th:field="*{age}" type="text" class="form-control" id="age"
+                                           placeholder="Enter age" required>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
